@@ -6,6 +6,12 @@ module MyAmazingMovieApp
 
     enable :sessions
 
+    before do
+      unless request.path == url_for(:sign_in) || session[:logged_in] == true || request.path == url_for(:login)
+        redirect url_for(:sign_in)
+      end
+    end
+
     ##
     # Caching support.
     #
@@ -62,5 +68,21 @@ module MyAmazingMovieApp
     #     render 'errors/500'
     #   end
     #
+
+    get :sign_in do
+      render 'movie/login'
+    end
+
+    post :login do
+      if params[:password] == "coolbeans"
+        session[:logged_in] = true
+      end
+      redirect '/movies'
+    end
+
+    get :index do
+      @movies = Movie.all
+      render 'movie/index'
+    end
   end
 end

@@ -1,1 +1,27 @@
 <h1><%= @movie.title %></h1>
+<p><%= @movie.year %></p>
+<p><%= @movie.description %></p>
+<img src=<%= @movie.poster %>>
+<p><%= @movie.runtime %></p>
+<% @movie.directors.each do |d| %>
+<%= d.name %>
+<% end %>
+<% @movie.writers.each do |w| %>
+<p><%= w.name %></p>
+<% end %>
+Actors
+<% @movie.actors.each do |a| %>
+<p><%= a.name %></p>
+<% end %>
+Genres
+<% @movie.genres.each do |g| %>
+<p><%= g.name %></p>
+<% end %>
+
+
+<%= link_to 'Edit', url_for(:movies, :edit, :id => @movie.id) %>
+<% form_for @movie, url_for(:movies, :delete, :id => @movie.id), :method => :delete do |m| %>
+  <p>
+    <%= m.submit :delete %>
+  </p>
+<% end %>

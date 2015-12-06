@@ -20,6 +20,8 @@ gem 'rake'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
 gem 'httparty'
+gem 'pry'
+gem 'haml'
 
 # Test requirements
 group :test do

@@ -1,0 +1,6 @@
+%h1 New Movie
+
+= form_for @movie, url_for(:movies, :create), :method => :post do |m|
+  = m.label :title
+  = m.text_field :title
+  = m.submit "Create"

@@ -1,0 +1,19 @@
+%h1 Edit Movie
+
+= form_for @movie, url_for(:movies, :update, :id => @movie.id), :method => :put do |m|
+  %p
+    = m.label :title
+    = m.text_field :title
+  %p
+    = m.label :year
+    = m.text_field :year
+  %p
+    = m.label :description
+    = m.text_field :description
+  %p
+    = m.label :poster
+    = m.text_field :poster
+  %p
+    = m.label :runtime
+    = m.text_field :runtime
+  = m.submit

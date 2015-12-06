@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 10) do
+
+  create_table "actors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "actors_movies", force: :cascade do |t|
+    t.integer  "actor_id"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directors_movies", force: :cascade do |t|
+    t.integer  "director_id"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_movies", force: :cascade do |t|
+    t.integer  "genre_id"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +64,20 @@ ActiveRecord::Schema.define(version: 2) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+  end
+
+  create_table "movies_writers", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "writer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "writers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

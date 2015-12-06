@@ -1,0 +1,7 @@
+<% form_tag url_for(:login), :method => 'post' do %>
+  <p>
+    <%= label_tag :password %>
+    <%= password_field_tag :password, :value => params[:password] %>
+  </p>
+    <%= submit_tag "Submit" %>
+<% end %>
